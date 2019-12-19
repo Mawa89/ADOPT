@@ -15,6 +15,8 @@ hr{
 .perso_ColorVertMenu{color :#BC5F5F;}
 .perso_ColorRougeMenu{color : white !important;}
 .perso_ColorBleuCielMenu{color : white !important;}
+.perso_ColorAdminMenu{color : rgb(131, 13, 13) !important;}
+.perso_size26{font-size:26px;}
 .perso_size20{font-size:20px;}
 .perso_size12{font-size:12px;}
 .perso_minCorpSize{min-height:500px;}

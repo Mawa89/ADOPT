@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once "controllers/backend.controller.php";
 require_once "controllers/frontend.controller.php";
 require_once "config/Securite.class.php";
 
@@ -33,6 +35,26 @@ try {
             case "actus": getPageActus();
             break;
             case "animal": getPageAnimal();
+            break;
+            case "login": getPageLogin();
+            break;
+            case "admin": getPageAdmin();
+            break;
+            case "genererPensionnaireAdmin": getPagePensionnaireAdmin();
+            break;
+            case "genererPensionnaireAdminAjout": getPagePensionnaireAdminAjout();
+            break;
+            case "genererPensionnaireAdminModif": getPagePensionnaireAdminModif();
+            break;
+            case "genererPensionnaireAdminSup": getPagePensionnaireAdminSup();
+            break;
+            case "genererNewsAdmin": getPageNewsAdmin();
+            break;
+            case "genererNewsAdminAjout": getPageNewsAdminAjout();
+            break;
+            case "genererNewsAdminModif": getPageNewsAdminModif();
+            break;
+            case "genererNewsAdminSup": getPageNewsAdminSup();
             break;
             case "error301": 
             case "error302": 

@@ -116,7 +116,6 @@ echo styleTitreNiveau1("Ils ont besoin de vous !",COLOR_ASSO);
         </div>
     </div>
 </div>
-
 <?php
 
 echo styleTitreNiveau1("Venez les voir !",COLOR_ASSO);
@@ -124,6 +123,7 @@ echo styleTitreNiveau1("Venez les voir !",COLOR_ASSO);
 ?>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.2486174227474!2d2.2931853156755513!3d48.891598879290754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66f9beb71a183%3A0x93e52aa5423fb04!2s21%20Rue%20d&#39;Alsace%2C%2092300%20Levallois-Perret!5e0!3m2!1sfr!2sfr!4v1573637527211!5m2!1sfr!2sfr" width="100%" height="320px" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 </div>
+
 
 <?php
 $content = ob_get_clean();

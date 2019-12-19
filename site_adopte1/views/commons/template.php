@@ -26,9 +26,10 @@
                 <div class='col-6 col-lg-8 m-0 p-0'>
                     <?php include("views/commons/menu.php") ?>
 
-                </div>
+            </div>
                 <div class='col-4 col-lg-2 text-right pt-1 pr-4 perso_ColorRouge'>
-                    ADOPT <br /> LEVALLOIS (92300)   </div>
+                    <a href="?page=login" class='nav-link text-white text-center'> ADOPT <br /> LEVALLOIS (92300)</a>
+                </div>
             </div>
         </header>
         <!-- Contenu du site -->

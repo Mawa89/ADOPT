@@ -23,6 +23,10 @@
                 <a class="dropdown-item perso_ColorOrangeMenu" href="<?= URL ?>?page=pensionnaires&idstatut=<?= ID_STATUT_A_L_ADOPTION ?>">Ils cherchent une famille</a>
                 <a class="dropdown-item perso_ColorOrangeMenu" href="<?= URL ?>?page=pensionnaires&idstatut=<?= ID_STATUT_FALD ?>">Famille d'Accueil Longue Durée</a>
                 <a class="dropdown-item perso_ColorOrangeMenu" href="<?= URL ?>?page=pensionnaires&idstatut=<?= ID_STATUT_ADOPTE ?>">Les anciens</a>
+                <?php if(Securite::verifAccessSession()){ ?>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item perso_ColorAdminMenu" href="<?= URL ?>?page=genererPensionnaireAdmin">Gestion des pensionnaires</a>
+                <?php } ?>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -30,9 +34,13 @@
                 Actus
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item perso_ColorVertMenu" href="<?= URL ?>?page=actus&type=<?= TYPE_NEWS ?>">Nouvelles des adoptés</a>
-                <a class="dropdown-item perso_ColorVertMenu" href="<?= URL ?>?page=actus&type=<?= TYPE_EVENTS ?>">Evénements</a>
-                <a class="dropdown-item perso_ColorVertMenu" href="<?= URL ?>?page=actus&type=<?= TYPE_ACTIONS ?>">Nos actions au quotidien</a>
+                <a class="dropdown-item perso_ColorOrangeMenu" href="<?= URL ?>?page=actus&type=<?= TYPE_NEWS ?>">Nouvelles des adoptés</a>
+                <a class="dropdown-item perso_ColorOrangeMenu" href="<?= URL ?>?page=actus&type=<?= TYPE_EVENTS ?>">Evénements</a>
+                <a class="dropdown-item perso_ColorOrangeMenu" href="<?= URL ?>?page=actus&type=<?= TYPE_ACTIONS ?>">Nos actions au quotidien</a>
+                <?php if(Securite::verifAccessSession()){ ?>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item perso_ColorAdminMenu" href="<?= URL ?>?page=genererNewsAdmin">Gestion des news</a>
+                <?php } ?>
             </div>
         </li>
         <li class="nav-item dropdown">
