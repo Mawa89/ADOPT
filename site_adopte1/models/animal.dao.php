@@ -7,8 +7,9 @@ function getAnimalFromStatut($idStatut){
     SELECT * 
     FROM animal 
     where id_statut = :idStatut';
-    if($idStatut === ID_STATUT_ADOPTE){
+    if((int) $idStatut === ID_STATUT_ADOPTE){
         $req .= ' or id_statut = '.ID_STATUT_MORT;
+        $req .= ' order by date_adoption_animal DESC';
     }
     $stmt = $bdd->prepare($req);
     $stmt->bindValue(":idStatut",$idStatut,PDO::PARAM_INT);
@@ -104,11 +105,11 @@ function getListeCaracteresAnimal(){
     return $caracteres;
 }
 
-function insertAnimalIntoBD($nom,$puce,$dateN,$type,$sexe,$statut,$amiChien,$amiChat,$amiEnfant,$description,$adoptionDesc,$localisation,$engagement){
+function insertAnimalIntoBD($nom,$puce,$dateN,$dateA,$type,$sexe,$statut,$amiChien,$amiChat,$amiEnfant,$description,$adoptionDesc,$localisation,$engagement){
     $bdd = connexionPDO();
     $req = '
-    INSERT INTO animal (nom_animal, type_animal, puce, sexe, date_naissance_animal, ami_chien,ami_chat,ami_enfant,description_animal,adoption_desc_animal,localisation_animal,engagement_animal,id_statut)
-    values (:nom, :type, :puce, :sexe, :dateN, :amiChien, :amiChat, :amiEnfant, :description, :adoptionDesc, :localisation, :engagement, :statut)
+    INSERT INTO animal (nom_animal, type_animal, puce, sexe, date_naissance_animal, date_adoption_animal, ami_chien,ami_chat,ami_enfant,description_animal,adoption_desc_animal,localisation_animal,engagement_animal,id_statut)
+    values (:nom, :type, :puce, :sexe, :dateN, :dateA, :amiChien, :amiChat, :amiEnfant, :description, :adoptionDesc, :localisation, :engagement, :statut)
     ';
     $stmt = $bdd->prepare($req);
     $stmt->bindValue(":nom",$nom,PDO::PARAM_STR);
@@ -116,6 +117,7 @@ function insertAnimalIntoBD($nom,$puce,$dateN,$type,$sexe,$statut,$amiChien,$ami
     $stmt->bindValue(":puce",$puce,PDO::PARAM_STR);
     $stmt->bindValue(":sexe",$sexe,PDO::PARAM_INT);
     $stmt->bindValue(":dateN",$dateN,PDO::PARAM_STR);
+    $stmt->bindValue(":dateA",$dateA,PDO::PARAM_STR);
     $stmt->bindValue(":amiChien",$amiChien,PDO::PARAM_STR);
     $stmt->bindValue(":amiChat",$amiChat,PDO::PARAM_STR);
     $stmt->bindValue(":amiEnfant",$amiEnfant,PDO::PARAM_STR);
@@ -183,14 +185,14 @@ function getAnimalCaracteresBD($idAnimal){
     return $animaux;
 }
 
-function updateAnimalIntoBD($idAnimal,$nom,$puce,$dateN,$typeSaisie,$sexe,$statut,$amiChien,$amiChat,$amiEnfant,$description, $adoptionDesc, $localisation, $engagement){
+function updateAnimalIntoBD($idAnimal,$nom,$puce,$dateN,$dateAdoption,$typeSaisie,$sexe,$statut,$amiChien,$amiChat,$amiEnfant,$description, $adoptionDesc, $localisation, $engagement){
     $bdd = connexionPDO();
     $req = '
     update animal
     set nom_animal = :nom, type_animal = :type, puce=:puce, sexe=:sexe, date_naissance_animal=:dateN,
     ami_chien = :amiChien, ami_chat = :amiChat,ami_enfant = :amiEnfant, description_animal = :description,
     adoption_desc_animal = :adoptionDesc, localisation_animal= :localisation,
-    engagement_animal = :engagement, id_statut = :statut
+    engagement_animal = :engagement, id_statut = :statut, date_adoption_animal = :dateA
     where id_animal = :idAnimal
     ';
     $stmt = $bdd->prepare($req);
@@ -200,6 +202,7 @@ function updateAnimalIntoBD($idAnimal,$nom,$puce,$dateN,$typeSaisie,$sexe,$statu
     $stmt->bindValue(":puce",$puce,PDO::PARAM_STR);
     $stmt->bindValue(":sexe",$sexe,PDO::PARAM_INT);
     $stmt->bindValue(":dateN",$dateN,PDO::PARAM_STR);
+    $stmt->bindValue(":dateA",$dateN,PDO::PARAM_STR);
     $stmt->bindValue(":amiChien",$amiChien,PDO::PARAM_STR);
     $stmt->bindValue(":amiChat",$amiChat,PDO::PARAM_STR);
     $stmt->bindValue(":amiEnfant",$amiEnfant,PDO::PARAM_STR);
@@ -232,6 +235,20 @@ function deleteAnimalFromBD($idAnimal){
     where id_animal = :idAnimal';
     $stmt = $bdd->prepare($req);
     $stmt->bindValue(":idAnimal",$idAnimal,PDO::PARAM_INT);
+    $resultat = $stmt->execute();
+    $stmt->closeCursor();
+    return $resultat;
+}
+
+function deleteImagesFromAnimal($idImage,$idAnimal){
+    $bdd = connexionPDO();
+    $req = '
+    delete FROM contient 
+    where id_animal = :idAnimal and id_image = :idImage
+    ';
+    $stmt = $bdd->prepare($req);
+    $stmt->bindValue(":idAnimal",$idAnimal,PDO::PARAM_INT);
+    $stmt->bindValue(":idImage",$idImage,PDO::PARAM_INT);
     $resultat = $stmt->execute();
     $stmt->closeCursor();
     return $resultat;

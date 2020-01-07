@@ -205,6 +205,7 @@
         <label for="engagement">Engagement</label>
         <textarea class="form-control" id="engagement" name="engagement" rows="5"><?=  $data['animal']['engagement_animal'] ?></textarea>
     </div>
+    <?php require "views/back/imagesAnimalManager.view.php" ?>
     
     <div class="row no-gutters">
         <button type="submit" class="col btn btn-primary">Valider</button>

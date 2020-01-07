@@ -15,3 +15,16 @@ function insertImageIntoBD($nomImage,$url){
     $stmt->closeCursor();
     return $resultat;
 }
+
+function getAllImagesFromBD(){
+    $bdd = connexionPDO();
+    $req = '
+    SELECT * 
+    FROM image
+    order by id_image DESC';
+    $stmt = $bdd->prepare($req);
+    $stmt->execute();
+    $images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt->closeCursor();
+    return $images;
+}

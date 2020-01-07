@@ -21,10 +21,7 @@
         <label for="contenuActu">Contenu de l'actualité : </label>
         <textarea class="form-control" id="contenuActu" name="contenuActu" rows="5" required></textarea>
     </div>
-    <div class="form-group">
-        <label for="imageActu">Image : </label>
-        <input type="file" class="form-control-file" name="imageActu" id="imageActu" required>
-    </div>
+    <?php require "imagesNewsManager.view.php" ?>
     <div class="row no-guters">
         <input type="submit" value="Valider" class="btn btn-primary col">
     </div>
