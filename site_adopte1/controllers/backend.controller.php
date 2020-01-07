@@ -322,11 +322,11 @@ function getPageNewsAdminModif(){
             }
         } catch(Exception $e){
             $alert = "La modification de l'actualité n'a pas fonctionnée <br />". $e->getMessage();
-            $alertType = ALERT_DANGER;$typeActu);
+            $alertType = ALERT_DANGER;
+        }
+        $data['actualites'] = getActualitesFromBD((int) $typeActu);
         $data['actualite'] = getActualiteFromBD($actualite);
     }
-        }
-        $data['actualites'] = getActualitesFromBD((int) 
     getPageNewsAdmin("views/back/adminNewsModif.view.php",$alert,$alertType,$data);
 }
 
