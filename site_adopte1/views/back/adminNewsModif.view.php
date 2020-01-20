@@ -67,7 +67,7 @@
     </div>
     <div class="row no-guters">
         <input type="submit" value="Valider" class="btn btn-primary col">
-        <button id="btnSup" class="btn btn-danger col">Supprimer</button>
+      <button id="btnSup" class="btn btn-danger col">Supprimer</button>
     </div>
 </form>
 <script src="public/js/verificationSuppressionActualite.js"></script>

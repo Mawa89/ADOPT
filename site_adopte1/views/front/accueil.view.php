@@ -64,7 +64,7 @@ echo styleTitreNiveau1("Ils ont besoin de vous !",COLOR_ASSO);
                         <p class='mb-auto'>
                             <?= affichageCoupe(nl2br($animal['description_animal']),300) ?>
                         </p>
-                        <a href="animal&idAnimal=<?= $animal['id_animal'] ?>" class='btn btn-primary'>Visiter ma page </a>
+                        <a href="?page=animal&idAnimal=<?= $animal['id_animal'] ?>" class='btn btn-primary'>Visiter ma page </a>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@ echo styleTitreNiveau1("Ils ont besoin de vous !",COLOR_ASSO);
                 <p class='perso_size12 mt-2'>
                     <?= affichageCoupe(nl2br($news['contenu_actualite']),100) ?>
                 </p>
-                <a href="<?= URL ?>actus&type=<?= TYPE_NEWS ?>" class='btn btn-primary'>Voir les nouvelles des adoptés </a>
+                <a href="<?= URL ?>?page=actus&type=<?= TYPE_NEWS ?>" class='btn btn-primary'>Voir les nouvelles des adoptés </a>
             </div>
         </div>
     </div>
@@ -110,8 +110,8 @@ echo styleTitreNiveau1("Ils ont besoin de vous !",COLOR_ASSO);
                 <p class='perso_size12 mt-2'>
                     <?= affichageCoupe(nl2br($action['contenu_actualite']),100) ?>
                 </p>
-                <a href="<?= URL ?>actus&type=<?= TYPE_EVENTS ?>" class='btn btn-primary'>Les events </a>
-                <a href="<?= URL ?>actus&type=<?= TYPE_ACTIONS ?>" class='btn btn-primary'>Les actions </a>
+                <a href="<?= URL ?>?page=actus&type=<?= TYPE_EVENTS ?>" class='btn btn-primary'>Les events </a>
+                <a href="<?= URL ?>?page=actus&type=<?= TYPE_ACTIONS ?>" class='btn btn-primary'>Les actions </a>
             </div>
         </div>
     </div>
