@@ -38,7 +38,7 @@
 </p>
 <p class='pl-5'>
     Pour faire une <span class="badge badge-warning">donation de bien</span>, vous pouvez utiliser le 
-    <a href="contact.php">
+    <a href="?page=contact.php">
         <span class="badge badge-primary">formulaire de contact</span>
     </a>
     pour nous contacter <br/><br/>
@@ -47,15 +47,17 @@
     Pour une <span class="badge badge-warning">donation financière</span>, vous pouvez nous adresser un chèque à l'association :<br/> 
     <p style="text-align:center">
         Association ADOPT<br/>
-        21 Rue d'alsace<br/> 92300 , Levallois Perret, France
+        2 Rue Maurice Ravel<br/> 92300 , Levallois Perret, France
     </p>
-</p>
+</p>        06 52 45 66 72 - <a href="mailto:site_adopt@yahoo.com">site_adopt@yahoo.com</a>
+
 <p class='pl-5'>
     Vous avez une <span class="badge badge-warning">question</span>, Contactez nous par téléphone ou par mail<br/> 
     <p class='text-center'>
-        06 52 45 66 72 - <a href="mailto:bouareawa111@gmail.com">bouareawa111@gmail.com</a>
+        06 52 45 66 72 - <a href="mailto:site_adopt@yahoo.com">site_adopt@yahoo.com</a>
     </p>
 </p>
+
 
 <?php
 $content = ob_get_clean();
